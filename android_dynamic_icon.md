@@ -78,10 +78,12 @@ private fun changeIcon(icon: String?) {
 
 ## 4. Usage
 
+Change new icon:
 ```
-// Change new icon
 changeIcon("IconRed")
+```
 
-// Reset default
+Reset default:
+```
 changeIcon("MainActivity")
 ```
