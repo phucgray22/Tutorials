@@ -1,8 +1,17 @@
 # IOS Dynamic Icon (Swift)
 
 ## 1. Drag and drop icons into `icons` folder
+Create icons at appicon.co[](https://www.appicon.co/)
 
 ![](/images/Screenshot%202024-05-07%20at%2009.59.18.png)
+
+> #### Note
+> - Prepare icon to generate:
+> 1024x1024
+> - Naming: 
+> icon@2x, icon@3x
+
+
 
 ## 2. Create `changeIcon` function
 
