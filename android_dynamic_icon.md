@@ -8,7 +8,7 @@
 
 ![](/images/Screenshot%202024-05-07%20at%2009.31.11.png)
 
-```
+```xml
 <activity-alias
     android:name=".IconBlue"
     android:exported="true"
@@ -38,7 +38,7 @@
 
 ## 3. Create `changeIcon` function
 
-```
+```java
 private fun changeIcon(icon: String?) {
         val aliases = listOf("MainActivity", "IconBlue", "IconGreen")
 
@@ -79,11 +79,11 @@ private fun changeIcon(icon: String?) {
 ## 4. Usage
 
 Change new icon:
-```
+```java
 changeIcon("IconRed")
 ```
 
 Reset default:
-```
+```java
 changeIcon("MainActivity")
 ```

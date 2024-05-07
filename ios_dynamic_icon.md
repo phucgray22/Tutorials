@@ -23,7 +23,7 @@ func changeIcon(name: String?) {
 
 You can change icon without alert or you want to custom alert
 
-```
+```swift
 func changeIconWithoutAlert(name: String?) {
     if UIApplication.shared.responds(to: #selector(getter: UIApplication.supportsAlternateIcons)) && UIApplication.shared.supportsAlternateIcons {
         typealias setAlternateIconName = @convention(c) (NSObject, Selector, NSString, @escaping (NSError) -> ()) -> ()
@@ -40,17 +40,17 @@ func changeIconWithoutAlert(name: String?) {
 
 Change new icon:
 
-```
+```swift
 changeIcon("IconRed")
 ```
 
 Change new icon without alert:
 
-```
+```swift
 changeIconWithoutAlert("IconRed")
 ```
 
 Reset default:
-```
+```swift
 changeIcon(nil)
 ```
