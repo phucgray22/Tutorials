@@ -64,6 +64,7 @@ private fun changeIcon(icon: String?) {
                     .show()
             }
             else
+            {
                 manager.setComponentEnabledSetting(
                     ComponentName(
                         this@MainActivity,
@@ -72,6 +73,7 @@ private fun changeIcon(icon: String?) {
                     PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                     PackageManager.DONT_KILL_APP
                 )
+            }
         }
     }
 ```
