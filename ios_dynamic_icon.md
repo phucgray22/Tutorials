@@ -15,7 +15,7 @@ Create icons at appicon.co[](https://www.appicon.co/)
 
 ## 2. Create `changeIcon` function
 
-```
+```swift
 func changeIcon(name: String?) {
     UIApplication.shared.setAlternateIconName(name)
 }
