@@ -1,4 +1,4 @@
-# Android Download File From URL (Kotlin)
+# Android Download File From URL (Kotlin) without permissions
 
 > Without permission
 >  - **WRITE_EXTERNAL_STORAGE**, 
@@ -20,7 +20,7 @@
 </manifest>
 ```
 
-## 2. Create `downloadFileFromURL ` function
+## 2. Create `downloadFileFromURL` function
 
 ```java
 private fun downloadFileFromURL(url: String, fileName: String) {
