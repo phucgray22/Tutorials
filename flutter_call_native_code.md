@@ -1,4 +1,4 @@
-# Flutter call native code using Method Channel (Kotlin)
+# Flutter call native code using Method Channel (Kotlin/Swift)
 
 ## 1. Setup Flutter code
 
@@ -44,7 +44,7 @@ class _CallNativeExampleState extends State<CallNativeExample> {
 }
 ```
 
-## 2. Setup native kotlin code
+## 2. Setup native Kotlin (Android) code
 
 ```kotlin
 package com.example.demo_abc
@@ -79,6 +79,52 @@ class MainActivity : FlutterFragmentActivity() {
     companion object {
         // Same name with Flutter method channel
         private const val CHANNEL = "ihrp.dev/example"
+    }
+}
+```
+
+## 3. Setup native Swift (IOS) code
+
+```swift
+import UIKit
+import Flutter
+
+@UIApplicationMain
+@objc class AppDelegate: FlutterAppDelegate {
+    override func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
+        GeneratedPluginRegistrant.register(with: self)
+        
+        if let controller = window?.rootViewController as? FlutterViewController {
+            // Same name with Flutter method channel
+            let channel = FlutterMethodChannel(
+                name: "ihrp.dev/example",
+                binaryMessenger: controller.binaryMessenger
+            )
+            
+            channel.setMethodCallHandler({ [weak self] (
+                call: FlutterMethodCall,
+                result: @escaping FlutterResult) -> Void in
+                switch call.method {
+                case "getDeviceInfo":
+                    var map: [String: Any] = [:]
+                    
+                    if let infoDictionary = Bundle.main.infoDictionary {
+                        map["versionName"] = infoDictionary["CFBundleShortVersionString"]
+                        map["versionCode"] = infoDictionary["CFBundleVersion"]
+                    } 
+
+                    // call "result(data)" to send data to Flutter
+                    result(map)
+                default:
+                    result(FlutterMethodNotImplemented)
+                }
+            })
+        }
+        
+        return super.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 }
 ```
